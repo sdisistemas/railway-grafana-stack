@@ -6,16 +6,31 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  # - job_name: 'example_api'
-  #   scheme: http
-  #   static_configs:
-  #     - targets: ['example_api:9091']
+  # SISClubes Backend - Production
+  - job_name: 'sisclubes-backend'
+    scheme: https
+    metrics_path: /metrics
+    scrape_interval: 30s
+    scrape_timeout: 10s
+    static_configs:
+      - targets: ['sisclubes-backend-production.up.railway.app']
+        labels:
+          project: 'sisclubes'
+          env: 'production'
+    basic_auth:
+      username: 'prometheus'
+      password: 'SDI@dificil#8368'
 
-  #  ? TODO: add your services here
-  # - job_name: 'your-job-name'
+  # ? TODO: add your services here
+  # - job_name: 'sdi-vistorias'
   #   scheme: https
+  #   metrics_path: /metrics
+  #   scrape_interval: 30s
   #   static_configs:
-  #     - targets: ['URL_GOES_HERE']
+  #     - targets: ['sdi-vistorias-production.up.railway.app']
+  #       labels:
+  #         project: 'sdi-vistorias'
+  #         env: 'production'
   #   basic_auth:
-  #     username: HTTP_AUTH_USERNAME_GOES_HERE
-  #     password: HTTP_AUTH_PASSWORD_GOES_HERE
+  #     username: 'prometheus'
+  #     password: 'SENHA_DO_VISTORIAS'
