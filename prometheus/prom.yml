@@ -1,5 +1,5 @@
 global:
-  scrape_interval: 15s # Default scrape interval
+  scrape_interval: 15s
 
 scrape_configs:
   - job_name: 'prometheus'
@@ -25,17 +25,6 @@ scrape_configs:
   - job_name: 'postgres'
     static_configs:
       - targets: ['postgres-exporter.railway.internal:9187']
-
-  # ? TODO: add your services here
-  # - job_name: 'sdi-vistorias'
-  #   scheme: https
-  #   metrics_path: /metrics
-  #   scrape_interval: 30s
-  #   static_configs:
-  #     - targets: ['sdi-vistorias-production.up.railway.app']
-  #       labels:
-  #         project: 'sdi-vistorias'
-  #         env: 'production'
-  #   basic_auth:
-  #     username: 'prometheus'
-  #     password: 'SENHA_DO_VISTORIAS'
+        labels:
+          project: 'sisclubes'
+          db: 'postgresql'
