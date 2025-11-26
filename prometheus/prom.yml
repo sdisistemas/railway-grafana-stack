@@ -21,6 +21,11 @@ scrape_configs:
       username: 'prometheus'
       password: 'SDI@dificil#8368'
 
+  # PostgreSQL Exporter
+  - job_name: 'postgres'
+    static_configs:
+      - targets: ['postgres-exporter.railway.internal:9187']
+
   # ? TODO: add your services here
   # - job_name: 'sdi-vistorias'
   #   scheme: https
